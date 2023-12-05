@@ -48,4 +48,4 @@ def produto_novo(request):
     if form.is_valid():
         form.save()
         return redirect('index')
-    return render(request, 'app/produto_novo.html', {'form':form})
+    return render(request, 'produto/produto_novo.html', {'form':form})
