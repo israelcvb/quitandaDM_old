@@ -1,35 +1,21 @@
-from django.http import HttpResponseRedirect
-from django.shortcuts import get_object_or_404, redirect, render
+from django.urls import reverse_lazy
 from django.utils import timezone
+from django.views.generic import TemplateView
 from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.views.generic.list import ListView
 from .models import Produto
-from .forms import ProdutoForm
 
 
-def index(request):
-    produtos = Produto.objects.all()
-    context = {
-        'produtos': produtos,
-    }
-    return render(request, 'produto/index.html', context)
+class HomePageView(TemplateView):
+    template_name = 'produto/home.html'
 
 
-def produto(request, produto_id):
-    model = Produto
-    template_name = 'produto/produto.html'
-
-
-class ProdutoList(ListView):
+class ProdutoListView(ListView):
     model = Produto
 
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['message'] = 'Lista de produtos'
-        return context
 
-
-class ProdutoDetail(DetailView):
+class ProdutoDetailView(DetailView):
     model = Produto
 
     def get_object(self, queryset=None):
@@ -43,9 +29,24 @@ class ProdutoDetail(DetailView):
         return context
 
 
-def produto_novo(request):
-    form = ProdutoForm(request.POST or None, request.FILES or None)
-    if form.is_valid():
-        form.save()
-        return redirect('index')
-    return render(request, 'produto/produto_novo.html', {'form':form})
+class ProdutoCreateView(CreateView):
+    model = Produto
+    fields = ["codigo", "nome", "preco", "descricao"]
+
+    def get_success_url(self):
+        return reverse_lazy('produto:listar')
+
+
+class ProdutoDeleteView(DeleteView):
+    model = Produto
+
+    def get_success_url(self):
+        return reverse_lazy('produto:listar')
+
+
+class ProdutoUpdateView(UpdateView):
+    model = Produto
+    fields = ["codigo", "nome", "preco", "descricao"]
+
+    def get_success_url(self):
+        return reverse_lazy('produto:listar')

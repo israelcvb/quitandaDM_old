@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Detalhe do produto</title>
-</head>
-<body>
+{% extends "produto/base.html" %}
+
+{% block content %}
 Código: {{ object.codigo }}<br>
 Nome do produto: {{ object.nome }}<br>
-</body>
-</html>
+Preço (R$): {{ object.preco }}<br>
+Descrição: {{ object.descricao }}<br>
+<hr>
+<a href="{% url 'produto:atualizar' object.pk %}">Atualizar produto</a><br>
+<a href="{% url 'produto:excluir' object.pk %}">Excluir produto</a><br>
+{% endblock %}

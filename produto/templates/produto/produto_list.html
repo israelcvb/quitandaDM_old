@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Lista de produtos</title>
-</head>
-<body>
+{% extends "produto/base.html" %}
+{% block content %}
 <p>{{ message }}</p>
 {% for produto in object_list %}
-<a href="{% url 'app:produto_detalhe' produto.pk %}">{{ produto }}</a><br>
+<a href="{% url 'produto:detalhe' produto.pk %}">{{ produto }}</a><br>
 {% endfor %}
-</body>
-</html>
+{% endblock %}

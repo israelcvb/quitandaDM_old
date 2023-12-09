@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Produto {{ produto.id }}</title>
-</head>
-<body>
+<{% extends "produto/base.html" %}
+{% block content %}
 <form action="{% url 'app:produto' produto.id %}" method="post">
     {% csrf_token %}
     <fieldset>
@@ -13,5 +8,4 @@
         {% for
     </fieldset>
 </form>
-</body>
-</html>
+{% endblock %}

@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Quitanda Dona Maria</title>
-</head>
-<body>
+{% extends "produto/base.html" %}
+{% block content %}
 {% if produtos %}
 <ul>
     {% for produto in produtos %}
@@ -14,5 +9,4 @@
 {% else %}
 <p>Nenhum produto encontrado!</p>
 {% endif %}
-</body>
-</html>
+{% endblock %}
