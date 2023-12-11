@@ -1,4 +1,4 @@
-<{% extends "produto/base.html" %}
+<{% extends "base/base.html" %}
 {% block content %}
 <form action="{% url 'app:produto' produto.id %}" method="post">
     {% csrf_token %}
