@@ -1,3 +1,6 @@
 from django.contrib import admin
+from ensaios.models import Documento, Todo
 
-# Register your models here.
+
+admin.site.register(Documento)
+admin.site.register(Todo)

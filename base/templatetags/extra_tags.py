@@ -1,9 +1,9 @@
-from datetime import datetime
 from django import template
+from django.utils import timezone
 
 register = template.Library()
 
 
 @register.simple_tag
 def current_time():
-    return datetime.now().strftime("%d/%m/%Y às %H:%M:%S")
+    return timezone.now().strftime("%d/%m/%Y")

@@ -1,5 +1,4 @@
 from django.urls import reverse_lazy
-from django.utils import timezone
 from django.views.generic import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
@@ -22,11 +21,6 @@ class ProdutoDetailView(DetailView):
         pk = self.kwargs.get(self.pk_url_kwarg)
         # return Produto.objects.select_related('nome').get(id=pk)
         return Produto.objects.get(id=pk)
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['now'] = timezone.now()
-        return context
 
 
 class ProdutoCreateView(CreateView):
