@@ -7,8 +7,8 @@ from django.views.generic.list import ListView
 from produto.models import Produto
 
 
-class HomePageView(TemplateView):
-    template_name = 'produto/home.html'
+class IndexPageView(TemplateView):
+    template_name = 'produto/index.html'
 
 
 class ProdutoListView(ListView):

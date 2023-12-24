@@ -1,12 +1,7 @@
-{% extends "produto/base.html" %}
+{% extends "base/base.html" %}
+
+{% block title %} quitandaDM - Home {% endblock %}
 {% block content %}
-{% if produtos %}
-<ul>
-    {% for produto in produtos %}
-    <li><a href="{% url 'app:produto' produto.id %}">{{ produto }}</a></li>
-    {% endfor %}
-</ul>
-{% else %}
-<p>Nenhum produto encontrado!</p>
-{% endif %}
+<a href="{% url 'produto:listar' %}">Lista de produtos</a><br>
+<a href="{% url 'produto:cadastrar' %}">Cadastrar novo produto</a><br>
 {% endblock %}
