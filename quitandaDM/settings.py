@@ -40,7 +40,6 @@ INSTALLED_APPS = [
 
     # apps
     'base.apps.BaseConfig',
-    'ensaios.apps.EnsaiosConfig',
     'produto.apps.ProdutoConfig',
 
     # libs
