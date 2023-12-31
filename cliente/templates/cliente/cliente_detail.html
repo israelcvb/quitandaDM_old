@@ -1,0 +1,16 @@
+{% extends "base/base.html" %}
+
+{% block conteudo %}
+<p>Nome: {{ object.nome }}</p>
+<p>Sexo: {{ object.sexo }}</p>
+<p>Data de nascimento: {{ object.data_nascimento }}</p>
+<p>Cidade: {{ object.cidade }}</p>
+<p>Bairro: {{ object.bairro }}</p>
+<p>Fone: {{ object.fone }}</p>
+<p>Email: {{ object.email }}</p>
+<p>Foto: {{ object.foto }}</p>
+<p>Data do cadastro: {{ object.data_cadastro }}</p>
+<hr>
+<a href="{% url 'cliente:atualizacao' object.pk %}">Atualizar cliente</a><br>
+<a href="{% url 'cliente:exclusao' object.pk %}">Excluir cliente</a><br>
+{% endblock %}

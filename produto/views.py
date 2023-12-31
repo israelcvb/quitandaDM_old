@@ -28,14 +28,14 @@ class ProdutoCreateView(CreateView):
     fields = ["codigo", "nome", "preco", "descricao"]
 
     def get_success_url(self):
-        return reverse_lazy('produto:listar')
+        return reverse_lazy('produto:lista')
 
 
 class ProdutoDeleteView(DeleteView):
     model = Produto
 
     def get_success_url(self):
-        return reverse_lazy('produto:listar')
+        return reverse_lazy('produto:lista')
 
 
 class ProdutoUpdateView(UpdateView):
@@ -43,4 +43,4 @@ class ProdutoUpdateView(UpdateView):
     fields = ["codigo", "nome", "preco", "descricao"]
 
     def get_success_url(self):
-        return reverse_lazy('produto:listar')
+        return reverse_lazy('produto:lista')

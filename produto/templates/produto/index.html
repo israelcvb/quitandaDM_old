@@ -1,7 +1,7 @@
 {% extends "base/base.html" %}
 
 {% block title %} quitandaDM - Home {% endblock %}
-{% block content %}
-<a href="{% url 'produto:listar' %}">Lista de produtos</a><br>
-<a href="{% url 'produto:cadastrar' %}">Cadastrar novo produto</a><br>
+{% block conteudo %}
+<a href="{% url 'produto:lista' %}">Lista de produtos</a><br>
+<a href="{% url 'produto:cadastro' %}">Cadastrar novo produto</a><br>
 {% endblock %}

@@ -1,11 +1,11 @@
 {% extends "base/base.html" %}
 
-{% block content %}
-Código: {{ object.codigo }}<br>
-Nome do produto: {{ object.nome }}<br>
-Preço (R$): {{ object.preco }}<br>
-Descrição: {{ object.descricao }}<br>
+{% block conteudo %}
+<p>Código: {{ object.codigo }}</p>
+<p>Nome do produto: {{ object.nome }}</p>
+<p>Preço (R$): {{ object.preco }}</p>
+<p>Descrição: {{ object.descricao }}</p>
 <hr>
-<a href="{% url 'produto:atualizar' object.pk %}">Atualizar produto</a><br>
-<a href="{% url 'produto:excluir' object.pk %}">Excluir produto</a><br>
+<a href="{% url 'produto:atualizacao' object.pk %}">Atualizar produto</a><br>
+<a href="{% url 'produto:exclusao' object.pk %}">Excluir produto</a><br>
 {% endblock %}

@@ -1,5 +1,5 @@
-<{% extends "base/base.html" %}
-{% block content %}
+{% extends "base/base.html" %}
+{% block conteudo %}
 <form action="{% url 'app:produto' produto.id %}" method="post">
     {% csrf_token %}
     <fieldset>
