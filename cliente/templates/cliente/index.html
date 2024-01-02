@@ -1,7 +1,7 @@
 {% extends 'base/base.html' %}
 
 {% block conteudo %}
-<p>Em construção...</p>
+<a href="{% url 'cliente:cadastro' %}" class="btn btn-primary btn-lg">Cadastrar novo cliente</a>
 <p><a href="{% url 'cliente:lista' %}">Lista de clientes</a></p>
 <p><a href="{% url 'cliente:cadastro' %}">Cadastrar novo cliente</a></p>
 {% endblock %}

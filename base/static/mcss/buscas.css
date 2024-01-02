@@ -1,0 +1,25 @@
+.input-busca {
+    width: 80%;
+    padding: 6px;
+    margin: 0;
+    font-size: 20px;
+    margin: 8px 0;
+    border: none;
+}
+
+.input-busca:focus {
+    outline: none;
+}
+
+.mbtn-busca {
+    width: 20%;
+    border: #fff;
+    border-radius: 4px;
+    background-color: #fff;
+    color: black;
+}
+
+.mbtn-busca:hover {
+    background-color: #e7e7e7;
+    color: white;
+}

@@ -1,14 +1,67 @@
 {% extends "base/base.html" %}
+
+{% load static %}
+
+{% block mstatics %}
+<link href="{% static 'mcss/buscas.css' %}" rel="stylesheet">
+<link href="{% static 'mcss/formularios.css' %}" rel="stylesheet">
+<link href="{% static 'mcss/tabelas.css' %}" rel="stylesheet">
+{% endblock %}
+
 {% block conteudo %}
 <p>{{ message }}</p>
-<ul>
-{% for cliente in object_list %}
-    <li>
-        <a href="{% url 'cliente:detalhes' cliente.pk %}">{{ cliente }}</a>
-    </li>
-{% empty %}
-    <p>Nenhum cliente cadastrado!</p>
-    <p><a class="btn btn-secondary btn-lg" role="button" href="{% url 'cliente:cadastro' %}">Cadastrar novo cliente</a></p>
-{% endfor %}
-</ul>
+<h1>Meus clientes</h1>
+<div style="text-align: center">
+<a class="mbtn mbtn-salvar mbtn-gt" href="{% url 'cliente:cadastro' %}">CADASTRAR NOVO CLIENTE</a>
+<form class="mform" role="search">
+  <input class="input-busca" type="search" placeholder="Buscar" aria-label="Search">
+  <button class="mbtn-busca" type="submit">
+    <img src="{% static '/img/searchicon.png' %}" width="32" height="32">
+  </button>
+</form>
+</div>
+<div class="mtabela">
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">NOME</th>
+        <th scope="col">CPF</th>
+        <th scope="col">CONTATO</th>
+        <th scope="col">E-MAIL</th>
+        <th scope="col">DATA CADASTRO</th>
+        <th scope="col">ÚLTIMA COMPRA</th>
+        <th scope="col">STATUS</th>
+        <th scope="col">AÇÃO</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for cliente in object_list %}
+      <tr>
+        <th scope="row">{{ cliente.id }}</th>
+        <td>{{ cliente.nome }}</td>
+        <td>{{ cliente.cpf }}</td>
+        <td>{{ cliente.contato }}</td>
+        <td>{{ cliente.email }}</td>
+        <td>{{ cliente.data_cadastro }}</td>
+        <td>{{ cliente.data_ultima_compra }}</td>
+        <td>
+          {% if cliente.status == '1' %}
+          <span class="mbtn" style="color: black; background-color: green; border-radius: 50%">1</span>
+          {% elif cliente.status == '2' %}
+          <span class="mbtn" style="color: black; background-color: yellow; border-radius: 50%">2</span>
+          {% else %}
+          <span class="mbtn" style="color: black; background-color: red; border-radius: 50%">3</span>
+          {% endif %}
+        </td>
+        <td>
+          <a href="{% url 'cliente:detalhes' cliente.pk %}">
+            <img src="{% static '/img/eyeglasses.svg' %}" alt="Exibir" width="40" height="40">
+          </a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
 {% endblock %}

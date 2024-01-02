@@ -1,16 +1,24 @@
 {% extends "base/base.html" %}
+{% load static %}
+
+{% block mstatics %}
+<link href="{% static 'mcss/formularios.css' %}" rel="stylesheet">
+{% endblock %}
 
 {% block conteudo %}
 <p>Nome: {{ object.nome }}</p>
 <p>Sexo: {{ object.sexo }}</p>
 <p>Data de nascimento: {{ object.data_nascimento }}</p>
+<p>CPF: {{ object.cpf }}</p>
 <p>Cidade: {{ object.cidade }}</p>
 <p>Bairro: {{ object.bairro }}</p>
-<p>Fone: {{ object.fone }}</p>
+<p>Contato: {{ object.fone }}</p>
 <p>Email: {{ object.email }}</p>
-<p>Foto: {{ object.foto }}</p>
 <p>Data do cadastro: {{ object.data_cadastro }}</p>
+<p>Data da última compra: {{ object.data_ultima_compra }}</p>
+<p>Status: {{ object.status }}</p>
+<p>Foto: {{ object.foto }}</p>
 <hr>
-<a href="{% url 'cliente:atualizacao' object.pk %}">Atualizar cliente</a><br>
-<a href="{% url 'cliente:exclusao' object.pk %}">Excluir cliente</a><br>
+<a class="mbtn mbtn-atualizar mbtn-gt" href="{% url 'cliente:atualizacao' object.pk %}">Atualizar</a>
+<a class="mbtn mbtn-excluir mbtn-gt" href="{% url 'cliente:exclusao' object.pk %}">Excluir</a>
 {% endblock %}

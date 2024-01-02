@@ -6,10 +6,6 @@ from django.views.generic.list import ListView
 from cliente.models import Cliente
 
 
-class IndexPageView(TemplateView):
-    template_name = 'cliente/index.html'
-
-
 class ClienteDetailView(DetailView):
     model = Cliente
 
@@ -24,7 +20,8 @@ class ClienteListView(ListView):
 
 class ClienteCreateView(CreateView):
     model = Cliente
-    fields = ['nome', 'sexo', 'data_nascimento', 'cidade', 'bairro', 'fone', 'email', 'foto']
+    fields = ['nome', 'sexo', 'data_nascimento', 'cpf', 'cidade', 'bairro',
+              'contato', 'email', 'status', 'foto']
 
     def get_success_url(self):
         return reverse_lazy('cliente:lista')
@@ -32,7 +29,8 @@ class ClienteCreateView(CreateView):
 
 class ClienteUpdateView(UpdateView):
     model = Cliente
-    fields = ['nome', 'sexo', 'data_nascimento', 'cidade', 'bairro', 'fone', 'email', 'foto']
+    fields = ['nome', 'sexo', 'data_nascimento', 'cpf', 'cidade', 'bairro',
+              'contato', 'email', 'status', 'foto']
 
     def get_success_url(self):
         return reverse_lazy('cliente:lista')
