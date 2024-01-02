@@ -11,8 +11,33 @@
     <title>Title</title>
 </head>
 
+<style>
+.item {
+    background-color: #fff;
+    margin: 4px;
+}
+.menu {
+    background-color: #333;
+    color: white;
+}
+.coluna {
+    display: grid;
+    grid-template-columns: 2fr 8fr 1fr;
+}
+    
+.linha {
+    grid-template-rows: auto;
+}
+    
+.rodape {
+    background-color: blue;
+    height: 50px;
+    color: white;
+    text-align: center;
+}
+</style>
 <body>
-<section>
+<section class="navegacao">
     <nav>
         <ul>
             <li>
@@ -39,12 +64,22 @@
         </ul>
     </nav>
 </section>
-<section>
-    <div class="conteudo">
-        {% block conteudo %}{% endblock %}
-    </div>
-</section>
-<section>
-</section>
+<div class="coluna linha">
+    <section class="item menu">
+        MENU ESQUERDO
+    </section>
+    <section class="item conteudo">
+        <div>
+            {% block conteudo %}{% endblock %}
+        </div>
+    </section>
+    <section class="item menu">
+        Menu direito
+    </section>
+</div>
+
+<section class="rodape">
+    Rodapé
+  </section>
 </body>
 </html>

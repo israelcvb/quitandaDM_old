@@ -1,38 +1,51 @@
-{% extends 'base/base.html' %}
-
-{% block conteudo %}
 <style>
+.navegacao {
+  background-color: black;
+  color: white;
+  margin: 8px;
+  height: 50px;
+  border-radius: 8px;
+  text-align: center;
+}
+.item {
+  margin: 5px;
+  background-color: red;
+  text-align: center;
+  font-size: 25px;
+  border-radius: 10px;
+  color: white;
+}
 
-.div0 {
-  background-color: blue;
-  width: 600px;
-  height: 400px;
-  padding: 8px;
+.titulo {
+  color: red;
   text-align: center;
 }
 
-.div1 {
-  background-color: red;
-  width: 20%;
-  margin: 8px;
-  padding: 8px;
+.coluna {
+  display: grid;
+  grid-template-columns: 2fr 5fr 1fr;
 }
 
-.div2 {
-  background-color: green;
-  width: 20%;
-  margin: 8px;
-  padding: 8px;
+.linha {
+  grid-template-rows: auto;
 }
+
+.rodape {
+  background-color: blue;
+  height: 50px;
+  color: white;
+  text-align: center;
+}
+
 </style>
-
-<div class="div0">
-  Div0
-<div class="div1">
-Div1
-</div>
-<div class="div2">
-  Div2
-</div>
-</div>
-{% endblock %}
+<section class="navegacao">
+  Navegação
+</section>
+<section class="coluna linha">
+  <div class="item">Menu direito</div>
+  <div class="item">Conteúdo</div>
+  <div class="item">Menu esquerdo</div>
+</section>
+<section class="rodape">
+  Rodapé
+</section>
