@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}
+{% block conteudo %}
+  <p>{{ message }}</p>
+  <ul>
+    {% for client in object_list %}
+      <li>
+        <a href="{% url 'client:detail' client.pk %}">{{ client }}</a>
+      </li>
+      {% empty %}
+      <li>
+        Nenhum cliente cadastrado!
+      </li>
+    {% endfor %}
+    <li>
+        <a class="btn btn-secondary btn-lg" role="button" href="{% url 'client:new' %}">Cadastrar novo cliente</a>
+    </li>
+  </ul>
+{% endblock %}

@@ -40,7 +40,7 @@ INSTALLED_APPS = [
 
     # apps
     'base.apps.BaseConfig',
-    'cliente.apps.ClienteConfig',
+    'client.apps.ClientConfig',
     'company_hierarchy.apps.CompanyHierarchyConfig',
     'employee.apps.EmployeeConfig',
     'product.apps.ProductConfig',

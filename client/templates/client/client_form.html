@@ -1,0 +1,25 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block mstatics %}
+<link href="{% static 'mcss/formularios.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title%}Editar cliente{% endblock %}
+
+{% block conteudo %}
+<div>
+  <form method="post">
+    <div class="form-titulo">
+      <h2>Editar cliente</h>
+    </div>
+    <div class="input-div">
+      {% csrf_token %}
+      {{ form.as_p }}
+    </di>
+    <div style="text-align: right">
+      <button type="submit" class="mbtn mbtn-salvar mbtn-gt">Salvar</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block mstatics %}
+<link href="{% static 'mcss/formularios.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block conteudo %}
+<p>Nome: {{ object.name }}</p>
+<p>Sexo: {{ object.gender }}</p>
+<p>Data de nascimento: {{ object.birth_date }}</p>
+<p>Bairro: {{ object.district }}</p>
+<p>Contato: {{ object.contact }}</p>
+<p>E-mail: {{ object.email }}</p>
+<p>Data de registro: {{ object.registration_date }}</p>
+<p>CPF: {{ object.cpf }}</p>
+<p>Data da última compra: {{ object.last_purchase_date }}</p>
+<p>Status: {{ object.status }}</p>
+<p>Foto: {{ object.photo }}</p>
+<hr>
+<a class="mbtn mbtn-atualizar mbtn-gt" href="{% url 'client:update' object.pk %}">Atualizar</a>
+<a class="mbtn mbtn-excluir mbtn-gt" href="{% url 'client:delete' object.pk %}">Excluir</a>
+{% endblock %}

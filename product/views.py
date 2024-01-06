@@ -36,5 +36,5 @@ class ProductUpdateView(UpdateView):
 class ProductDeleteView(DeleteView):
     model = Product
 
-    def get_success_url(self) -> str:
-        return super().get_success_url()
+    def get_success_url(self):
+        return reverse_lazy('product:list')
