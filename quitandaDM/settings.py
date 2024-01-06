@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     # apps
     'base.apps.BaseConfig',
     'cliente.apps.ClienteConfig',
-    'produto.apps.ProdutoConfig',
+    'company_hierarchy.apps.CompanyHierarchyConfig',
+    'employee.apps.EmployeeConfig',
+    'product.apps.ProductConfig',
 
     # libs
     'rest_framework',

@@ -1,0 +1,13 @@
+{% extends "base/base.html" %}
+
+{% block conteudo %}
+<p>Código: {{ object.code }}</p>
+<p>Nome do produto: {{ object.name }}</p>
+<p>Preço (R$): {{ object.price }}</p>
+<p>Descrição: {{ object.description }}</p>
+<p>Data de cadastro: {{ object.registration_date }}</p>
+<p>Data de fabricação: {{ object.manufacturing_date }}</p>
+<hr>
+<a href="{% url 'product:update' object.pk %}">Atualizar produto</a><br>
+<a href="{% url 'product:delete' object.pk %}">Excluir produto</a><br>
+{% endblock %}

@@ -22,6 +22,6 @@ urlpatterns = [
     path('', views.HomePageViews.as_view(), name='home-page'),
     path('sobre/', views.SobrePageViews.as_view(), name='sobre'),
     path('cliente/', include('cliente.urls')),
-    path('produto/', include('produto.urls')),
+    path('produto/', include('product.urls')),
     path('admin/', admin.site.urls),
 ]

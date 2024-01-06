@@ -1,0 +1,7 @@
+{% extends "base/base.html" %}
+
+{% block title %} quitandaDM - Home {% endblock %}
+{% block conteudo %}
+<a href="{% url 'product:list' %}">Lista de produtos</a><br>
+<a href="{% url 'product:create' %}">Cadastrar novo produto</a><br>
+{% endblock %}

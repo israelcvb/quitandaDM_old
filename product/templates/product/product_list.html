@@ -1,0 +1,14 @@
+{% extends "base/base.html" %}
+{% block conteudo %}
+<p>{{ message }}</p>
+<ul>
+{% for product in object_list %}
+    <li>
+        <a href="{% url 'product:detail' product.pk %}">{{ product }}</a>
+    </li>
+{% empty %}
+    <p>Nenhum produto cadastrado!</p>
+    <p><a class="btn btn-secondary btn-lg" role="button" href="{% url 'produto:cadastrar' %}">Cadastrar produto</a></p>
+{% endfor %}
+</ul>
+{% endblock %}
