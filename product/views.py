@@ -29,12 +29,8 @@ class ProductDetailView(DetailView):
 class ProductUpdateView(UpdateView):
     model = Product
     fields = ['code', 'name', 'manufacturer', 'description', 'price', 'manufacturing_date']
-
-    def get_success_url(self):
-        return reverse_lazy('product:list')
+    success_url = reverse_lazy("product:list")
 
 class ProductDeleteView(DeleteView):
     model = Product
-
-    def get_success_url(self):
-        return reverse_lazy('product:list')
+    success_url = reverse_lazy("product:list")

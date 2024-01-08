@@ -32,9 +32,7 @@ class ClientCreateView(CreateView):
     model = Client
     fields = ['name', 'gender', 'birth_date', 'city', 'district', 'contact', 'email',
               'photo', 'cpf', 'last_purchase_date', 'status']
-
-    def get_success_url(self) -> str:
-        return reverse_lazy('client:list')
+    success_url = reverse_lazy("client:list")
  
 
 class ClientDetailView(DetailView):
